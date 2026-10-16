@@ -24,8 +24,7 @@
   thumbnail.src=`https://i.ytimg.com/vi/${box.dataset.video}/hqdefault.jpg`;
   thumbnail.addEventListener('error',()=>{thumbnail.style.visibility='hidden';});
   const play=document.createElement('span');play.className='play-symbol';play.setAttribute('aria-hidden','true');play.textContent='▶';
-  const label=document.createElement('span');label.className='play-text';label.textContent=`PLAY REFERENCE / ${box.dataset.title.toUpperCase()}`;
-  button.append(thumbnail,play,label);screen.replaceChildren(button);status(box,'');
+  button.append(thumbnail,play);screen.replaceChildren(button);status(box,'');
   button.addEventListener('click',()=>openVideo(box,index));
  }
  function pauseEntry(entry){
@@ -95,9 +94,5 @@
  present.addEventListener('click',()=>deck?leave():enter());document.getElementById('exit').addEventListener('click',leave);document.getElementById('prev').addEventListener('click',()=>show(slide-1));document.getElementById('next').addEventListener('click',()=>show(slide+1));
  document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{if(!deck)return;const idx=pages.findIndex(p=>`#${p.id}`===a.getAttribute('href'));if(idx>=0){e.preventDefault();show(idx);}}));
  document.addEventListener('keydown',e=>{if(!deck||/INPUT|TEXTAREA|SELECT/.test(e.target.tagName))return;if(e.key==='ArrowRight'||e.key==='PageDown'){e.preventDefault();show(slide+1);}if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();show(slide-1);}if(e.key==='Escape')leave();});
- const beats=[['01 / HUY CALL','Vào câu nhanh, rõ mục tiêu. Tiếng bàn phím giữ năng lượng.',900],['02 / VY KHEN','Ánh mắt sáng lên; sự tự tin kéo Vy khỏi trận đấu.',1700],['03 / GHI TÊN','Cận bút chạm giấy. Hành động chứng minh Vy đã buông chuột.',600],['04 / BỊ HẠ','Tiếng game cắt ngang câu khen. Kết quả đến ngay sau nguyên nhân.',500],['05 / ĐỨNG HÌNH','Hạ nhạc, giữ mặt Vy một nhịp. Cho khán giả bắt được cú quê.',800]];const beatButtons=[...document.querySelectorAll('[data-beat]')],run=document.getElementById('run-beats');let timer=null,running=false;
- function selectBeat(n){beatButtons.forEach((b,i)=>b.setAttribute('aria-pressed',String(i===n)));document.getElementById('beat-title').textContent=beats[n][0];document.getElementById('beat-copy').textContent=beats[n][1];}
- function stopBeat(){clearTimeout(timer);timer=null;running=false;run.textContent='Chạy thử nhịp 4,5 giây';}
- beatButtons.forEach((b,i)=>b.addEventListener('click',()=>{stopBeat();selectBeat(i);}));run.addEventListener('click',()=>{if(running){stopBeat();return;}running=true;run.textContent='Dừng nhịp';let n=0;function step(){selectBeat(n);timer=setTimeout(()=>{n++;if(n<beats.length)step();else stopBeat();},beats[n][2]);}step();});
  if(location.protocol==='file:')document.getElementById('local-help').hidden=false;
 })();
