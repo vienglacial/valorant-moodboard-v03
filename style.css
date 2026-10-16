@@ -26,7 +26,7 @@ p{margin-top:10px}
 .notes article{display:flex;gap:16px;padding:19px 0;border-top:1px solid #23344735}
 .notes article:first-child{padding-top:0;border-top:0}
 .note-number{font-size:12px;color:#607057;padding-top:4px}
-.notes p,.look-copy article>p:not(.eyebrow){font-size:16px;line-height:1.6}
+.notes p{font-size:16px;line-height:1.6}
 .acting-references>.eyebrow{margin-bottom:10px}
 .reference-pair{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .reference-pair h3{font-size:14px;margin-bottom:9px}
@@ -40,20 +40,17 @@ p{margin-top:10px}
 .video-bar a{text-decoration:underline;text-underline-offset:3px;font-weight:650;white-space:nowrap}
 .video-status{font-size:12px;color:#93420d;margin:6px 0 0}
 .video-status:empty{display:none}
-.light-photo figcaption{position:absolute;bottom:0;left:0;right:0;padding:35px 16px 13px;background:linear-gradient(transparent,#152633e6);color:white;font-size:12px}
 .extra-reference{font-size:11px;color:#536270;line-height:1.5;margin-top:10px}
 .extra-reference a{text-decoration:underline;text-underline-offset:3px}
-.look{background:#dfe9ed}
-.look-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:5vw;align-items:stretch}
-.light-photo{position:relative;min-height:380px;overflow:hidden}
-.light-photo img{height:100%;object-fit:cover;position:absolute;inset:0;object-position:50% 32%}
-.look-copy article+article{border-top:1px solid #23344735;margin-top:22px;padding-top:18px}
-.look-copy h3{margin-top:5px}
-.look-copy .eyebrow{color:#526b75}
-.palette{display:flex;margin-top:20px;min-height:60px}
-.palette>div{background:var(--sw);flex:1;display:flex;align-items:end;justify-content:center;padding:8px 2px;font-size:11px}
-.dark-swatch{color:white}
-.fine{font-size:11px;color:#536270}
+.look{background:#fff}
+.look-references{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:1040px;margin:auto}
+.frame-card{min-width:0}
+.frame-card img{height:auto;aspect-ratio:16/9;object-fit:contain}
+.frame-card figure>a{display:block}
+.frame-card figcaption{display:flex;justify-content:space-between;gap:12px;font-size:12px;color:#536270;margin-top:7px}
+.frame-card figcaption a{text-decoration:underline;text-underline-offset:3px;white-space:nowrap}
+.frame-card h3{font-size:20px;margin-top:14px}
+.frame-card ul{margin:8px 0 0;padding-left:20px;font-size:15px;line-height:1.5}
 footer{padding:22px 5vw;display:flex;align-items:start;justify-content:space-between;gap:30px;font-size:10px}
 footer>span{font-weight:700;white-space:nowrap}
 footer p{margin:0;max-width:660px}
@@ -71,9 +68,9 @@ body.deck .page.current{display:block;min-height:calc(100vh - 78px);padding-bott
 body.deck footer{display:none}
 [id]{scroll-margin-top:100px}
 @media(max-width:1000px){
-  .acting-grid,.look-grid{gap:30px;grid-template-columns:1fr 1.1fr}
-  .notes p,.look-copy article>p:not(.eyebrow){font-size:14px}
-  .notes h3,.look-copy h3{font-size:19px}
+  .acting-grid{gap:30px;grid-template-columns:1fr 1.1fr}
+  .notes p{font-size:14px}
+  .notes h3{font-size:19px}
   .notes article{gap:12px;padding:15px 0}
   .reference-pair{gap:10px}
   .reference-pair h3{font-size:12px}
@@ -89,17 +86,16 @@ body.deck footer{display:none}
   .section-top{font-size:10px}
   .page-heading{padding:20px 0 24px}
   .lead{font-size:18px}
-  .acting-grid,.look-grid{grid-template-columns:1fr;gap:26px}
-  .notes p,.look-copy article>p:not(.eyebrow){font-size:16px}
-  .notes h3,.look-copy h3{font-size:20px}
+  .acting-grid,.look-references{grid-template-columns:1fr;gap:26px}
+  .notes p{font-size:16px}
+  .notes h3{font-size:20px}
   .notes article{padding:18px 0}
   .reference-pair h3{font-size:13px;min-height:36px}
   .video-bar{flex-wrap:wrap;gap:3px;font-size:10px}
   .play-symbol{width:36px;height:36px;font-size:15px}
   .extra-reference{font-size:12px}
-  .light-photo{height:380px;min-height:0}
-  .look-copy article+article{margin-top:24px}
-  .palette>div{font-size:10px}
+  .frame-card ul{font-size:16px}
+  .frame-card figcaption{font-size:11px}
   footer{display:block;padding:22px 6vw}
   footer p{margin:10px 0}
   body.deck .page.current{min-height:calc(100vh - 72px)}
@@ -109,6 +105,8 @@ body.deck footer{display:none}
   body.deck .page-heading{padding:16px 0 20px}
   body.deck h1,body.deck h2{font-size:42px}
   body.deck .lead{font-size:18px}
-  body.deck .light-photo{min-height:320px}
+  body.deck .look .page-heading{padding:12px 0 16px}
+  body.deck .look h2{font-size:38px}
+  body.deck .look .lead{font-size:16px}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
